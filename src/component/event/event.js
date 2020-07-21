@@ -9,7 +9,7 @@ class Event extends Component{
     render () {
     return (
       <div className="container mb-3">
-            <h4 className="text-center text-primary font-weight m-3"></h4>
+            <h4 className="text-center text-primary font-weight m-3">Event</h4>
             <div className="card-columns">
       <div className="row">
         <Card className="mb-2">
@@ -41,8 +41,9 @@ class Event extends Component{
         </Card>
       
       </div>
+      </div>
       <Button  style={{float:"right"}} >View More</Button>
-     </div>
+   
    </div>
     );
   };

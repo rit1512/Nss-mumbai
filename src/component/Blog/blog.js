@@ -8,7 +8,7 @@ import {
 class Blog extends Component{
     render () {
     return (
-        <div className="container mb-3">
+        <div className="container mb-5">
             <h4 className="text-center text-primary font-weight m-3">Blog</h4>
             <div className="card-columns">
       <div className="row">
@@ -41,8 +41,9 @@ class Blog extends Component{
         </Card>
       
       </div>
-      <Button  style={{float:"right"}} >View More</Button>
-     </div>
+    </div>
+      <Button  className="mb-3" style={{float:"right"}} >View More</Button>
+    
    </div>
     );
   };

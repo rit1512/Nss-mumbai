@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import video from "../../Assets/1.mp4";
 import poster from "../../Assets/poster.jpg";
 import logo from "../../Assets/logo.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {
   Collapse,
   Navbar,
@@ -39,53 +41,38 @@ class Header extends Component {
 
     componentDidMount(){
      window.addEventListener('scroll', this.Scroll);
-     console.log(this.state.header)
+   
      
     }
     render () {
         return (
-            <div >
+            <div className="d-flex flex-column">
                 <Navbar  className={this.state.header} light expand="md">
-            <NavbarBrand  href="/"><img src={logo} width="200px" height="100px"/>National Space Society</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isopen} navbar>
+                <NavbarToggler onClick={this.toggle} style={{color:"white"}}>
+                  <FontAwesomeIcon  icon= {faBars} color="white" size="lg"/>
+                  </NavbarToggler>
+            <NavbarBrand  href="/"><img src={logo} width="150px" height="100px"/></NavbarBrand>
+
+        
+            <Collapse right isOpen={this.state.isopen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink href="#">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="">Advisory Board</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="">Collab & International Reach</NavLink>
-                </NavItem>
-                <NavItem>
                   <NavLink href="">Achievement</NavLink>
                 </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    Initiative
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>
-                      Events
-                    </DropdownItem>
-                    <DropdownItem>
-                      Webinars
-                    </DropdownItem>
-                    <DropdownItem>
-                      WorkShop
-                    </DropdownItem>
-                    <DropdownItem>
-                      Competitions
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
+                <NavItem>
+                  <NavLink href="">Event</NavLink>
+                </NavItem>
                 <NavItem>
                   <NavLink href="">About Us</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="">Contact Us</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="">Join now</NavLink>
                 </NavItem>
               <Button color="primary"><Badge color="primary">Donate US</Badge></Button>
               </Nav>
@@ -95,7 +82,6 @@ class Header extends Component {
             <div  className="videoclassName" >        
       <video  autoPlay loop muted style={{width: "100%"}} poster={poster}>
         <source src={video}  type="video/mp4" />
-        
       </video>
     
     </div>
