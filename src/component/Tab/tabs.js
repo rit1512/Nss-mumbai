@@ -25,11 +25,11 @@ render() {
 	     <CoolTabs
 	       tabKey={'1'}
 	       style={{ width:"100%", height:200, background:  'white' }}
-	       activeTabStyle={{ background:  '#0275d8', color:  'white' }}
-	       unActiveTabStyle={{ background:  '#0275d8', color:  'black' }}
-	       activeLeftTabBorderBottomStyle={{ background:  'white', height:  4 }}
-	       activeRightTabBorderBottomStyle={{ background:  'white', height:  4 }}
-	       tabsBorderBottomStyle={{ background:  'black', height:  4 }}
+	       activeTabStyle={{ background:  'white', color:  'black' }}
+	       unActiveTabStyle={{ background:  'white', color:  'black' }}
+	       activeLeftTabBorderBottomStyle={{ background:  '#0275d8', height:  4 }}
+	       activeRightTabBorderBottomStyle={{ background:  '#0275d8', height:  4 }}
+	       tabsBorderBottomStyle={{ background:  'white', height:  4 }}
 	       leftContentStyle={{ background:  'white' }}
 	       rightContentStyle={{ background:  'whte' }}
 	       leftTabTitle={'What is NSS?'}

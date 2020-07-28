@@ -10,19 +10,20 @@ import MainHeader from './component/header/mainheader';
 import SingleEvent from './component/event/singleEvent';
 import TABS from './component/Tab/tabs';
 import Gallery from './component/gallery/gallery';
+import {
+  Route
+} from "react-router-dom";
+import Home from './component/home/home';
+import SingleBlog2 from './component/Blog/singleblog2';
+import SingleBlog3 from './component/Blog/singleblog3';
 
 function App() {
   return (
     <div >
-     <Header/>
-     {/* <MainHeader/> */}
-     <TABS/>
-      <Blog/>
-     <Event/>
-   
-        {/* <SingleBlog/> */}
-    {/* <SingleEvent/> */}
-     <Footer/>
+       <Route path="/singleblog3" exact component={SingleBlog3}/>
+      <Route path="/singleblog2" exact component={SingleBlog2}/>
+    <Route path="/singleblog" exact component={SingleBlog}/>
+    <Route path="/" exact component={Home}/>
     </div>
   );
 }

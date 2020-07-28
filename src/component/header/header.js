@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import video from "../../Assets/1.mp4";
+import video1 from "../../Assets/1.mp4";
+import video2 from "../../Assets/mobile.mp4";
+import video3 from "../../Assets/mobile1.mp4";
 import poster from "../../Assets/poster.jpg";
 import logo from "../../Assets/logo.png";
+import classnames from "classnames";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -23,15 +26,28 @@ import {
 import '../../style/style.css'
 class Header extends Component {
         state={
-        header:"header",
-        isopen:false
+        header:"header2",
+        isopen:false,
+        prevScrollpos: window.pageYOffset,
+        visible: true
         }
 
+        handleScroll = () => {
+          const { prevScrollpos } = this.state;
+      
+          const currentScrollPos = window.pageYOffset;
+          const visible = prevScrollpos > currentScrollPos;
+      
+          this.setState({
+            prevScrollpos: currentScrollPos,
+            visible
+          });
+        };
      Scroll=()=>{
         if (window.scrollY > 70) {
             return this.setState({header:"header2"});
           } else  {
-            return this.setState({header:"header"});
+            return this.setState({header:"header2"});
           }
     }
   
@@ -41,17 +57,20 @@ class Header extends Component {
 
     componentDidMount(){
      window.addEventListener('scroll', this.Scroll);
-   
+     window.addEventListener("scroll", this.handleScroll);
      
+    }
+    componentWillUnmount() {
+      window.removeEventListener("scroll", this.handleScroll);
     }
     render () {
         return (
             <div className="d-flex flex-column">
-                <Navbar  className={this.state.header} light expand="md">
+                <Navbar className= {classnames("navbar",{"navbar--hidden": !this.state.visible},this.state.header)}light expand="md">
                 <NavbarToggler onClick={this.toggle} style={{color:"white"}}>
                   <FontAwesomeIcon  icon= {faBars} color="white" size="lg"/>
                   </NavbarToggler>
-            <NavbarBrand  href="/"><img src={logo} width="150px" height="100px"/></NavbarBrand>
+            <NavbarBrand  href="/"><img src={logo} width="200px" height="100px"/></NavbarBrand>
 
         
             <Collapse right isOpen={this.state.isopen} navbar>
@@ -79,13 +98,18 @@ class Header extends Component {
             
             </Collapse>
           </Navbar>
-            <div  className="videoclassName" >        
+            <div  className="d-none d-lg-block" >        
       <video  autoPlay loop muted style={{width: "100%"}} poster={poster}>
-        <source src={video}  type="video/mp4" />
+        <source src={video1}  type="video/mp4" />
       </video>
-    
     </div>
-          </div>  
+         
+          <div  className="d-lg-none" >        
+          <video  autoPlay loop muted style={{width: "100%"}} poster={poster}>
+            <source src={video3}  type="video/mp4" />
+          </video>
+        </div>
+              </div> 
         )
 
     }
