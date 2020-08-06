@@ -4,6 +4,7 @@ import './App.css';
 import Header from './component/header/header.js';
 import Blog from './component/Blog/blog';
 import SingleBlog from './component/Blog/singleblog'
+import myteam from './component/contactUs/myteam'
 import Event from './component/event/event';
 import Footer from './component/footer/footer';
 import MainHeader from './component/header/mainheader';
@@ -11,7 +12,7 @@ import SingleEvent from './component/event/singleEvent';
 import TABS from './component/Tab/tabs';
 import Gallery from './component/gallery/gallery';
 import {
-  Route
+  Route, Router
 } from "react-router-dom";
 import Home from './component/home/home';
 import SingleBlog2 from './component/Blog/singleblog2';
@@ -23,6 +24,7 @@ function App() {
        <Route path="/singleblog3" exact component={SingleBlog3}/>
       <Route path="/singleblog2" exact component={SingleBlog2}/>
     <Route path="/singleblog" exact component={SingleBlog}/>
+    <Route path="/myteam" exact component={myteam}/>
     <Route path="/" exact component={Home}/>
     </div>
   );

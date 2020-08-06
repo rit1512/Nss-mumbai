@@ -8,6 +8,9 @@ import classnames from "classnames";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {
+  Route, Router,Link
+} from "react-router-dom";
+import {
   Collapse,
   Navbar,
   NavbarToggler,
@@ -88,7 +91,23 @@ class Header extends Component {
                   <NavLink href="">About Us</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="">Contact Us</NavLink>
+                <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav >
+              Contact Us
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem  style={{color:"black"}}>
+                <Link to="/myteam">Our Team</Link>
+                
+                  
+                </DropdownItem>
+                <DropdownItem>
+                  Edit it
+                </DropdownItem>
+             
+              </DropdownMenu>
+            </UncontrolledDropdown>
+             
                 </NavItem>
                 <NavItem>
                   <NavLink href="">Join now</NavLink>
